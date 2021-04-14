@@ -1,0 +1,66 @@
+#heading{
+    background-color: #03aba6;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    font-family: 'Train One', cursive;
+    animation-name: Name;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    top: 0;
+    position: sticky;
+}
+#name{
+    animation-name: Name;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    font-size: 20px;
+    font-family: 'Train One', cursive;
+}
+@keyframes Name {
+    0%{background-color: #a60377;}
+    10%{background-color: #3d0574;}
+    20%{background-color: #0e22a5;}
+    30%{background-color: #1c6de0;}
+    40%{background-color: #03c1b8;}
+    50%{background-color: #01826f;}
+    60%{background-color: #02923b;}
+    70%{background-color: #b0b501;}
+    80%{background-color: #eea022;}
+    90%{background-color: #ed721a;}
+    100%{background-color: #d8223a;}
+}
+
+#note{
+    color: rgb(0, 0, 0);
+    font-size: 0px;
+    visibility: hidden;
+}
+canvas{
+    border: solid rgb(255, 255, 255) 1px;
+    animation-name: glow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+    0%{box-shadow:10px 10px 40px #a60377;}
+    10%{box-shadow:10px 10px 40px #3d0574;}
+    20%{box-shadow:10px 10px 40px #0e22a5;}
+    30%{box-shadow:10px 10px 40px #1c6de0;}
+    40%{box-shadow:10px 10px 40px #03c1b8;}
+    50%{box-shadow:10px 10px 40px #01826f;}
+    60%{box-shadow:10px 10px 40px #02923b;}
+    70%{box-shadow:10px 10px 40px #b0b501;}
+    80%{box-shadow:10px 10px 40px #eea022;}
+    90%{box-shadow:10px 10px 40px #ed721a;}
+    100%{box-shadow:10px 10px 40px #d8223a;}
+}
+#heading:hover span{
+    visibility: visible;
+    font-size: 20px;
+}
