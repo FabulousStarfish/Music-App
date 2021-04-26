@@ -1,12 +1,14 @@
-peter_pan="";
-harry_potter="";
+hp="";
+frozen="";
 leftX=0;
 leftY=0;
 rightX=0;
 rightY=0;
+song1Score=0;
+song1_status="";
 function preload(){
-    peter_pan= loadSound('music.mp3');
-    harry_potter= loadSound('music2.mp3');
+    disney= loadSound('Disney_music.mp3');
+    frozen= loadSound('music2.mp3');
 }
 function setup(){
     canvas=createCanvas(800,500);
@@ -21,13 +23,30 @@ function modalLoaded(){
 }
 function gotResult(result){
     if(result.length > 0){
+
+        song1Score=result[0].pose.keypoints[9].score;
         leftX=result[0].pose.leftWrist.x;
         leftY=result[0].pose.leftWrist.y;
         rightX=result[0].pose.rightWrist.x;
         rightY=result[0].pose.rightWrist.y;
+        // console.log("Left X - "+leftX);
+        // console.log("Left Y - "+leftY);
         console.log("Left Wrist X - "+leftX , "\n", "Left Wrist Y - "+ leftY , "\n", "Right Wrist X - "+rightX,"\n","Right Wrist Y - "+leftY);
+        console.log(song1Score);
     }
 }
 function draw(){
-    image(video,0,0,800,500)
+    image(video,0,0,800,500);
+    fill('#1ceddf');
+    stroke('#17e3b7');
+    
+    song1_status=frozen.isPlaying();
+    if(song1Score > 0.02){
+        circle(leftX,leftY,20);
+        disney.stop();
+        if(song1_status == false){
+            frozen.play();
+            document.getElementById("name").innerHTML="SONG - Frozen";
+        }
+    }
 }
