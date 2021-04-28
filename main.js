@@ -1,11 +1,14 @@
 hp="";
 frozen="";
+disney="";
 leftX=0;
 leftY=0;
 rightX=0;
 rightY=0;
 song1Score=0;
 song1_status="";
+song2Score=0;
+song2_status="";
 function preload(){
     disney= loadSound('Disney_music.mp3');
     frozen= loadSound('music2.mp3');
@@ -25,6 +28,7 @@ function gotResult(result){
     if(result.length > 0){
 
         song1Score=result[0].pose.keypoints[9].score;
+        song2Score=result[0].pose.keypoints[10].score;
         leftX=result[0].pose.leftWrist.x;
         leftY=result[0].pose.leftWrist.y;
         rightX=result[0].pose.rightWrist.x;
@@ -47,6 +51,16 @@ function draw(){
         if(song1_status == false){
             frozen.play();
             document.getElementById("name").innerHTML="SONG - Frozen";
+        }
+    }
+
+    song2_status=disney.isPlaying();
+    if(song2Score > 0.02){
+        circle(rightX,rightY,20);
+        frozen.stop();
+        if(song1_status == true){
+            disney.play();
+            document.getElementById("name").innerHTML="SONG - Disney";
         }
     }
 }
