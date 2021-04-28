@@ -42,7 +42,7 @@ function gotResult(result){
 function draw(){
     image(video,0,0,800,500);
     fill('#1ceddf');
-    stroke('#17e3b7');
+    stroke('#1ceddf');
     
     song1_status=frozen.isPlaying();
     if(song1Score > 0.02){
@@ -53,7 +53,8 @@ function draw(){
             document.getElementById("name").innerHTML="SONG - Frozen";
         }
     }
-
+    fill('#b342f5');
+    stroke('#b342f5');
     song2_status=disney.isPlaying();
     if(song2Score > 0.02){
         circle(rightX,rightY,20);
